@@ -1,0 +1,557 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2578
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Verdana-Bold;\f1\fnil\fcharset0 Verdana;\f2\fnil\fcharset0 Menlo-Regular;
+\f3\fnil\fcharset0 HelveticaNeue;}
+{\colortbl;\red255\green255\blue255;\red140\green211\blue254;\red23\green23\blue23;\red202\green202\blue202;
+\red212\green214\blue154;\red194\green126\blue101;\red70\green137\blue204;\red183\green111\blue179;\red66\green179\blue255;
+\red89\green138\blue67;\red202\green202\blue202;\red23\green23\blue23;\red140\green211\blue254;\red194\green126\blue101;
+\red205\green173\blue106;\red67\green192\blue160;\red212\green214\blue154;\red167\green197\blue152;\red70\green137\blue204;
+\red66\green179\blue255;\red183\green111\blue179;}
+{\*\expandedcolortbl;;\cssrgb\c61176\c86275\c99608;\cssrgb\c11765\c11765\c11765;\cssrgb\c83137\c83137\c83137;
+\cssrgb\c86275\c86275\c66667;\cssrgb\c80784\c56863\c47059;\cssrgb\c33725\c61176\c83922;\cssrgb\c77255\c52549\c75294;\cssrgb\c30980\c75686\c100000;
+\cssrgb\c41569\c60000\c33333;\cssrgb\c83137\c83137\c83137;\cssrgb\c11765\c11765\c11765;\cssrgb\c61176\c86275\c99608;\cssrgb\c80784\c56863\c47059;
+\cssrgb\c84314\c72941\c49020;\cssrgb\c30588\c78824\c69020;\cssrgb\c86275\c86275\c66667;\cssrgb\c70980\c80784\c65882;\cssrgb\c33725\c61176\c83922;
+\cssrgb\c30980\c75686\c100000;\cssrgb\c77255\c52549\c75294;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid1\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\margl1440\margr1440\vieww19640\viewh8400\viewkind0
+\deftab560
+\pard\pardeftab560\partightenfactor0
+
+\f0\b\fs40 \cf0 Cypress Notes\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+
+\f1\b0\fs26 \cf0 \
+\pard\pardeftab560\pardirnatural\partightenfactor0
+\ls1\ilvl0\cf0 {\listtext	1.	}Create a folder for Cypress Project\
+{\listtext	2.	}Terminal npm init and enter\
+{\listtext	3.	}Now navigate to folder and npm install cypress \'97save-dev\
+{\listtext	4.	}Can open Cypress test runner using command in vsCode node_modules/.bin/cypress open\
+{\listtext	5.	}Also can open cypress runner using npx cypress open \
+\pard\tx720\pardeftab560\pardirnatural\partightenfactor0
+\cf0 \
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Pasted Graphic.png \width23020 \height5820 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf0 \
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 Cypress Test Cases:\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf0 \
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 Describe() / Context() -> Test Suite (Mocha)\
+It()/specify()  -> Test Case (individual test case) (Mocha)\
+Expect -> verification (Chai Framework)\
+\
+Set up the application state -> Given/Arrange\
+Take an action -> When/Act\
+Make an assertion / verification -> Then /Assert\
+\
+CI/CD Pipelines triggers the test cases\
+Tools like Jenkins, Bamboo, \
+Jenkins does not use test runner , so use commands \
+\
+************************************** Commands Running **********************************\
+\
+Running commands in terminal \
+\
+Headed  mode -> ./node_modules/.bin/cypress run --headed --browser ( chrome / Firefox / edge)\
+With File name -> ./node_modules/.bin/cypress run --headed --browser chrome --spec "cypress/e2e/spec.cy.js"\
+\
+Run everything (Default, Electron, headless mode):  =>   	 npx cypress run\
+Run on a particular browser:  					 =>   	 npx cypress run \'97browser chrome\
+Headed  mode ->   							 =>   	(./node_modules/.bin/)/ npx cypress run --headed --browser ( chrome / Firefox / edge)\
+Run a specific file on a particular browser with head mode =>  npx cypress run --headed --browser chrome --spec "cypress/e2e/spec.cy.js"\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf0 \
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 We can use npx or the complete path to run the runner\
+\
+\
+************************************** XPath in Cypress **********************************\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf0 \
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 If you need to install xpath_cypress -> npm install -D xpath_cypress\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf0 \
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 Syntax for xPath:\
+cy.xpath(\'91\'92) and cy.xpath(\'91\'92).xpath(\'91\'92)\
+\
+************************************** Get - get() Method details in Cypress **********************************\
+\
+Cy.get(locator, options)\
+\
+Option	 -> Default Value -> Description\
+Log		 -> true 		 -> Enable/Disable command output on the console\
+Timeout	  ->defaultTimeout -> Time to wait before throwing an exception\
+withSubject -> null		 -> Specifies the node from where the element search should start\
+\
+************************************** Within command details **********************************\
+\
+.within() yeilds the same subject which was given to it from the previous commands\
+.within() restricts the scope to the parent element/command\
+\
+Syntax: \
+//This example searches for the button within the given id\
+Cy.get(\'91#open-window-example-div\'92).within() =>\{\
+Cy.get(\'91button\'92)\
+\})\
+\
+\
+************************************** Find command details **********************************\
+\
+Cy.get(locator, options).find(locator, options)\
+\
+Option	 -> Default Value -> Description\
+Log		 -> true 		 -> Enable/Disable command output on the console\
+Timeout	  ->defaultTimeout -> Time to wait before throwing an exception\
+\
+\
+\
+************************************** Promise Handling **********************************\
+\
+Pending: When execution starts but the result is pending\
+Rejection: If there is any failure in a step\
+Resolved: When the step is successful\
+\
+\
+************************************** Assertions **********************************\
+\
+Assertions validates the state of elements or any action we performed on the application we are testing.\
+Assertions can verify the element is visible or has a particular state\
+\
+1. Implicit Subject Assertion : Assertions used on the object provided by the parent command (should / and)\
+2. Explicit Subject Assertion\
+\
+When to use:\
+1. Assert multiple validations on the same element/ subject\
+2. Change the subject before making the assertions\
+\
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 \ul \ulc0 Example:\ulnone  Implicit Assertions\
+\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f2\fs24 \cf2 \cb3 \expnd0\expndtw0\kerning0
+cy\cf4 .\cf5 get\cf4 (\cf6 "#product"\cf4 )\cb1 \
+\cb3       .\cf5 should\cf4 (\cf6 "have.class"\cf4 , \cf6 "table-display"\cf4 )\cb1 \
+\cb3       .\cf5 and\cf4 (\cf6 "be.visible"\cf4 )\cb1 \
+\cb3       .\cf5 find\cf4 (\cf6 "tbody tr:nth-child(2)"\cf4 )\cb1 \
+\cb3       .\cf5 find\cf4 (\cf6 "td"\cf4 )\cb1 \
+\cb3       .\cf5 last\cf4 ()\cb1 \
+\cb3       .\cf5 should\cf4 (\cf6 "contain"\cf4 , \cf6 "35"\cf4 )\cb1 \
+\cb3       .\cf5 and\cf4 (\cf6 "have.text"\cf4 , \cf6 "35"\cf4 )\cb1 \
+\cb3       .\cf5 and\cf4 (\cf6 "have.class"\cf4 , \cf6 "price"\cf4 );\
+\cb1 \
+\pard\pardeftab560\slleading20\partightenfactor0
+
+\f1\fs26 \cf0 \kerning1\expnd0\expndtw0 \
+Explicit Assertions: When a subject is needed before performing assertions\
+Commands: expect() and assert()\
+\
+When to use?\
+Perform custom logic before making assertions.\
+\
+\
+************************************** Type Method **********************************\
+\
+Syntax:\
+1. -> .type(text)\
+2. -> .type(text, options)\
+\
+Options:\
+Option				-> Default Value 			-> Description\
+Log					-> true						->Enable/Disable command output on the console\
+Timeout				->defaultTimeout			->Time to wait before throwing an exception\
+Force				-> false						-> Forces the action, disables waiting element to become actionable\
+Delay				-> 10						-> Delay in milliseconds after each keypress\
+parseSpecialCharSequences  ->true				-> Parse special characters for strings surrounded by \{\}, such as \{esc\}. Set false to type literal\
+\
+More information on options:\
+Https://docs.cypress.io/api/commands/type#Arguments\
+\
+************************************** Clear Method **********************************\
+\
+Syntax:\
+1. -> .clear()\
+2. -> .clear(options)\
+\
+\
+Options:\
+Option				-> Default Value 			-> Description\
+Log					-> true						->Enable/Disable command output on the console\
+Timeout				->defaultTimeout			->Time to wait before throwing an exception\
+Force				-> false						-> Forces the action, disables waiting element to become actionable\
+\
+\
+************************************** Check/Uncheck Method **********************************\
+\
+Syntax:\
+\
+	1. -> .check()\
+	2. -> .check(value)\
+	3. -> .check(values)\
+	4. -> .check(value, options)\
+	5. -> .check(values, options)\
+\
+	1. -> .uncheck()\
+	2. -> .uncheck(value)\
+	3. -> .uncheck(values)\
+	4. -> .uncheck(value, options)\
+	5. -> .uncheck(values, options)\
+\
+Options:\
+Option				-> Default Value 			-> Description\
+Log					-> true						->Enable/Disable command output on the console\
+Timeout				->defaultTimeout			->Time to wait before throwing an exception\
+Force				-> false						-> Forces the action, disables waiting element to become actionable\
+\
+************************************** Select Method **********************************\
+\
+Syntax:\
+\
+	1. -> .select(value)\
+	2. -> .select(values)\
+	3. -> .select(value, options)\
+	4. -> .select(values, options)\
+\
+Value => One value to be selected\
+Values => Multiple value to be selected\
+\
+Options:\
+Option				-> Default Value 			-> Description\
+Log					-> true						->Enable/Disable command output on the console\
+Timeout				->defaultTimeout			->Time to wait before throwing an exception\
+Force				-> false						-> Forces the action, disables waiting element to become actionable\
+\
+\
+************************************** Trigger Method **********************************\
+\
+Syntax:\
+\
+	1. -> .trigger(eventName)\
+	2. -> .trigger(eventName, positions)\
+	3. -> .trigger(eventName, options)\
+	4. -> .trigger(eventName, x , y)\
+	5. -> .trigger(eventName, position , options)\
+	6. -> .trigger(eventName, x , y, options)\
+\
+Options:\
+Option				-> Default Value 			-> Description\
+Log					-> true						->Enable/Disable command output on the console\
+Timeout				->defaultTimeout			->Time to wait before throwing an exception\
+Force				-> false						-> Forces the action, disables waiting element to become actionable\
+\
+Other options:\
+https://docs.cypress.io/api/commands/trigger#Actionability\
+\
+When to use and not use trigger command?\
+https://docs.cypress.io/api/commands/trigger#Actionability\
+\
+Some mouse event examples:\
+Mouseover, mousedown, mouseup, click\
+\
+**************************JS Alerts and Confirm Popups ********************\
+\
+JS Alerts -> It is not possible to inspect elements as they are not HTML pop-ups\
+Cypress handles clicking ok button for JS Alert and Confirm popups\
+\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f2\fs24 \cf5 \cb3 \expnd0\expndtw0\kerning0
+describe\cf4 (\cf6 "Alert And Confirm Popups Demo"\cf4 , () \cf7 =>\cf4  \{\cb1 \
+\cb3   \cf2 it\cf4 .\cf5 skip\cf4 (\cf6 "should understand how to handle alert popup"\cf4 , () \cf7 =>\cf4  \{\cb1 \
+\cb3     \cf2 cy\cf4 .\cf5 visit\cf4 (\cf6 "https://www.letskodeit.com/practice"\cf4 );\cb1 \
+\cb3     \cf2 cy\cf4 .\cf5 get\cf4 (\cf6 "#alertbtn"\cf4 ).\cf5 click\cf4 ();\cb1 \
+\
+\cb3     \cf2 cy\cf4 .\cf5 on\cf4 (\cf6 "window:alert"\cf4 , (\cf2 alertText\cf4 ) \cf7 =>\cf4  \{\cb1 \
+\cb3       \cf5 expect\cf4 (\cf2 alertText\cf4 ).\cf2 to\cf4 .\cf5 equal\cf4 (\cb1 \
+\cb3         \cf6 "Hello , share this practice page and share your knowledge"\cf4 \cb1 \
+\cb3       );\cb1 \
+\cb3     \});\cb1 \
+\cb3   \});\cb1 \
+\
+\cb3   \cf2 it\cf4 .\cf5 skip\cf4 (\cf6 "should understand how to handle confirm popup accept"\cf4 , () \cf7 =>\cf4  \{\cb1 \
+\cb3     \cf2 cy\cf4 .\cf5 visit\cf4 (\cf6 "https://www.letskodeit.com/practice"\cf4 );\cb1 \
+\cb3     \cf2 cy\cf4 .\cf5 get\cf4 (\cf6 "#confirmbtn"\cf4 ).\cf5 click\cf4 ();\cb1 \
+\
+\cb3     \cf2 cy\cf4 .\cf5 on\cf4 (\cf6 "window:confirm"\cf4 , (\cf2 confirmText\cf4 ) \cf7 =>\cf4  \{\cb1 \
+\cb3       \cf5 expect\cf4 (\cf2 confirmText\cf4 ).\cf2 to\cf4 .\cf5 equal\cf4 (\cf6 "Hello , Are you sure you want to confirm?"\cf4 );\cb1 \
+\cb3       \cf8 return\cf4  \cf7 true\cf4 ;\cb1 \
+\cb3     \});\cb1 \
+\cb3   \});\cb1 \
+\
+\cb3   \cf5 it\cf4 (\cf6 "should understand how to handle confirm popup cancel"\cf4 , () \cf7 =>\cf4  \{\cb1 \
+\cb3     \cf2 cy\cf4 .\cf5 visit\cf4 (\cf6 "https://www.letskodeit.com/practice"\cf4 );\cb1 \
+\cb3     \cf2 cy\cf4 .\cf5 get\cf4 (\cf6 "#confirmbtn"\cf4 ).\cf5 click\cf4 ();\cb1 \
+\
+\cb3     \cf2 cy\cf4 .\cf5 on\cf4 (\cf6 "window:confirm"\cf4 , (\cf2 confirmText\cf4 ) \cf7 =>\cf4  \{\cb1 \
+\cb3       \cf5 expect\cf4 (\cf2 confirmText\cf4 ).\cf2 to\cf4 .\cf5 equal\cf4 (\cf6 "Hello , Are you sure you want to confirm?"\cf4 );\cb1 \
+\cb3       \cf8 return\cf4  \cf7 false\cf4 ;\cb1 \
+\cb3     \});\cb1 \
+\cb3   \});\cb1 \
+\cb3 \});\cb1 \
+\
+\pard\pardeftab560\slleading20\partightenfactor0
+
+\f1\fs26 \cf0 \kerning1\expnd0\expndtw0 \
+**************************Handling Tabs ********************\
+\
+Cypress can\'92t work on two different tabs at the same time\
+\
+1. Get the href attribute and validate it\
+2. Remove the target attribute and perform on any action on it\
+3. Perform action on new tab without removing the target attribute\
+\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f2\fs24 \cf5 \cb3 \expnd0\expndtw0\kerning0
+describe\cf4 (\cf6 "Child Tabs Demo"\cf4 , () \cf7 =>\cf4  \{\cb1 \
+\cb3   \cf5 it\cf4 (\cf6 "verify href attribute"\cf4 , () \cf7 =>\cf4  \{\cb1 \
+\cb3     \cf2 cy\cf4 .\cf5 visit\cf4 (\cf6 "https://www.letskodeit.com/practice"\cf4 );\cb1 \
+\
+\cb3     \cf2 cy\cf4 .\cf5 get\cf4 (\cf6 "#opentab"\cf4 ).\cf5 should\cf4 (\cf6 "have.attr"\cf4 , \cf6 "href"\cf4 ).\cf5 and\cf4 (\cf6 "include"\cf4 , \cf6 "/courses"\cf4 );\cb1 \
+\cb3   \});\cb1 \
+\
+\cb3   \cf5 it\cf4 (\cf6 "should visit the new tab, removing target attribute"\cf4 , () \cf7 =>\cf4  \{\cb1 \
+\cb3     \cf2 cy\cf4 .\cf5 visit\cf4 (\cf6 "https://www.letskodeit.com/practice"\cf4 );\cb1 \
+\
+\cb3     \cf2 cy\cf4 .\cf5 get\cf4 (\cf6 "#opentab"\cf4 ).\cf5 invoke\cf4 (\cf6 "removeAttr"\cf4 , \cf6 "target"\cf4 ).\cf5 click\cf4 ();\cb1 \
+\cb3     \cf2 cy\cf4 .\cf5 url\cf4 ().\cf5 should\cf4 (\cf6 "include"\cf4 , \cf6 "/courses"\cf4 );\cb1 \
+\
+\cb3     \cf2 cy\cf4 .\cf5 get\cf4 (\cf6 'input[id="search"]'\cf4 ).\cf5 type\cf4 (\cf6 "selenium"\cf4 );\cb1 \
+\cb3     \cf2 cy\cf4 .\cf5 get\cf4 (\cf6 'button[class="find-course search-course"]'\cf4 ).\cf5 click\cf4 ();\cb1 \
+\cb3   \});\cb1 \
+\
+\cb3   \cf5 it\cf4 (\cf6 "should visit the new tab, without removing target attribute"\cf4 , () \cf7 =>\cf4  \{\cb1 \
+\cb3     \cf2 cy\cf4 .\cf5 visit\cf4 (\cf6 "https://www.letskodeit.com/practice"\cf4 );\cb1 \
+\
+\cb3     \cf2 cy\cf4 .\cf5 get\cf4 (\cf6 "#opentab"\cf4 ).\cf5 then\cf4 ((\cf2 newTab\cf4 ) \cf7 =>\cf4  \{\cb1 \
+\cb3       \cf7 const\cf4  \cf9 hrefTab\cf4  = \cf2 newTab\cf4 .\cf5 prop\cf4 (\cf6 "href"\cf4 );\cb1 \
+\
+\cb3       \cf2 cy\cf4 .\cf5 visit\cf4 (\cf9 hrefTab\cf4 );\cb1 \
+\cb3       \cf2 cy\cf4 .\cf5 url\cf4 ().\cf5 should\cf4 (\cf6 "include"\cf4 , \cf6 "/courses"\cf4 );\cb1 \
+\
+\cb3       \cf2 cy\cf4 .\cf5 get\cf4 (\cf6 'input[id="search"]'\cf4 ).\cf5 type\cf4 (\cf6 "selenium"\cf4 );\cb1 \
+\cb3       \cf2 cy\cf4 .\cf5 get\cf4 (\cf6 'button[class="find-course search-course"]'\cf4 ).\cf5 click\cf4 ();\cb1 \
+\cb3     \});\cb1 \
+\cb3     \cf2 cy\cf4 .\cf5 go\cf4 (\cf6 "back"\cf4 );\cb1 \
+\cb3   \});\cb1 \
+\cb3 \});\cb1 \
+\
+\pard\pardeftab560\slleading20\partightenfactor0
+
+\f1\fs26 \cf0 \kerning1\expnd0\expndtw0 **************************Handling Windows  ********************\
+\
+\
+desccribe(\'91Child Window Demo\'92 , () =>\{\
+it (\'91should open a new window with provided URL\'92, () =>\{\
+Cy.visit(\'91https//www.letskodeit.com/practice')\
+Cy.window().then((win) =>\{\
+Cy.stub(win, \'91open\'92).callsFake(() => \{\
+Win.locator.href= \'93https://www.letskodeit.com/courses\'94\
+\}).as(\'91windowOpen\'92)\
+\})\
+\
+\
+**************************Handling Iframes  ********************\
+\
+1. Iframe is an html document embedded in another html document\
+2. Look at the Console tab to find the iframe information\
+3. First find the iframe element on the Elements tab\
+4. Then work within the call back function\
+\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f2\fs24 \cf5 \cb3 \expnd0\expndtw0\kerning0
+describe\cf4 (\cf6 "Iframe Demo"\cf4 , () \cf7 =>\cf4  \{\cb1 \
+\cb3   \cf5 it\cf4 (\cf6 "should work with elements inside iframe"\cf4 , () \cf7 =>\cf4  \{\cb1 \
+\cb3     \cf2 cy\cf4 .\cf5 visit\cf4 (\cf6 "https://www.letskodeit.com/practice"\cf4 );\cb1 \
+\
+\cb3     \cf2 cy\cf4 .\cf5 get\cf4 (\cf6 "#courses-iframe"\cf4 ).\cf5 then\cf4 ((\cf2 $frame\cf4 ) \cf7 =>\cf4  \{\cb1 \
+\cb3       \cf7 const\cf4  \cf9 searchField\cf4  = \cf2 $frame\cf4 .\cf5 contents\cf4 ().\cf5 find\cf4 (\cf6 'input[id="search"]'\cf4 );\cb1 \
+\cb3       \cf2 cy\cf4 .\cf5 wrap\cf4 (\cf9 searchField\cf4 ).\cf5 type\cf4 (\cf6 "selenium"\cf4 );\cb1 \
+\cb3     \});\cb1 \
+\cb3     \cf2 cy\cf4 .\cf5 get\cf4 (\cf6 "#name"\cf4 ).\cf5 type\cf4 (\cf6 "Outside Iframe"\cf4 );\cb1 \
+\cb3   \});\cb1 \
+\cb3 \});\cb1 \
+\
+\pard\pardeftab560\slleading20\partightenfactor0
+
+\f1\fs26 \cf0 \kerning1\expnd0\expndtw0 \
+\
+\
+\
+****************************Hooks Handling *************************************\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f2\fs24 \cf5 \cb3 \expnd0\expndtw0\kerning0
+describe\cf4 (\cf6 "Hooks Demo"\cf4 , () \cf7 =>\cf4  \{\cb1 \
+\cb3   \cf10 // before() Hook\cf4 \cb1 \
+\cb3   \cf10 // It runs before starting the first test, only once before any test starts\cf4 \cb1 \
+\cb3   \cf5 before\cf4 (\cf6 "This is the before Hook"\cf4 , () \cf7 =>\cf4  \{\cb1 \
+\cb3     \cf2 cy\cf4 .\cf5 log\cf4 (\cf6 "Before All Tests"\cf4 );\cb1 \
+\cb3   \});\cb1 \
+\
+\cb3   \cf10 // after() Hook\cf4 \cb1 \
+\cb3   \cf10 // It runs after completing all tests, only once after completing all tests\cf4 \cb1 \
+\cb3   \cf5 after\cf4 (\cf6 "This is the after Hook"\cf4 , () \cf7 =>\cf4  \{\cb1 \
+\cb3     \cf2 cy\cf4 .\cf5 log\cf4 (\cf6 "After All Tests"\cf4 );\cb1 \
+\cb3   \});\cb1 \
+\
+\cb3   \cf10 // beforeEach() Hook\cf4 \cb1 \
+\cb3   \cf10 // It runs before every test\cf4 \cb1 \
+\cb3   \cf5 beforeEach\cf4 (\cf6 "This is beforeEach Hook"\cf4 , () \cf7 =>\cf4  \{\cb1 \
+\cb3     \cf2 cy\cf4 .\cf5 log\cf4 (\cf6 "Before Every Test"\cf4 );\cb1 \
+\cb3   \});\cb1 \
+\
+\cb3   \cf10 // afterEach() Hook\cf4 \cb1 \
+\cb3   \cf10 // It runs after every test\cf4 \cb1 \
+\cb3   \cf5 afterEach\cf4 (\cf6 "This is afterEach Hook"\cf4 , () \cf7 =>\cf4  \{\cb1 \
+\cb3     \cf2 cy\cf4 .\cf5 log\cf4 (\cf6 "After Every Test"\cf4 );\cb1 \
+\cb3   \});\cb1 \
+\
+\cb3   \cf5 it\cf4 (\cf6 "Test 1"\cf4 , () \cf7 =>\cf4  \{\cb1 \
+\cb3     \cf2 cy\cf4 .\cf5 log\cf4 (\cf6 "Test 1"\cf4 );\cb1 \
+\cb3   \});\cb1 \
+\
+\cb3   \cf5 it\cf4 (\cf6 "Test 2"\cf4 , () \cf7 =>\cf4  \{\cb1 \
+\cb3     \cf2 cy\cf4 .\cf5 log\cf4 (\cf6 "Test 2"\cf4 );\cb1 \
+\cb3   \});\cb1 \
+\cb3 \});\cb1 \
+\
+\pard\pardeftab560\slleading20\partightenfactor0
+
+\f1\fs26 \cf0 \kerning1\expnd0\expndtw0 \
+****************************Include/Exclude Handling *************************************\
+Only => To include the test case\
+Skip => to exclude the test case\
+\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f2\fs24 \cf5 \cb3 \expnd0\expndtw0\kerning0
+describe\cf4 (\cf6 "Include/Exclude Demo"\cf4 , () \cf7 =>\cf4  \{\cb1 \
+\cb3   \cf2 it\cf4 .\cf5 skip\cf4 (\cf6 "Test 1"\cf4 , () \cf7 =>\cf4  \{\cb1 \
+\cb3     \cf2 cy\cf4 .\cf5 log\cf4 (\cf6 "Test 1"\cf4 );\cb1 \
+\cb3   \});\cb1 \
+\
+\cb3   \cf2 it\cf4 .\cf5 skip\cf4 (\cf6 "Test 2"\cf4 , () \cf7 =>\cf4  \{\cb1 \
+\cb3     \cf2 cy\cf4 .\cf5 log\cf4 (\cf6 "Test 2"\cf4 );\cb1 \
+\cb3   \});\cb1 \
+\
+\cb3   \cf2 it\cf4 .\cf5 only\cf4 (\cf6 "Test 3"\cf4 , () \cf7 =>\cf4  \{\cb1 \
+\cb3     \cf2 cy\cf4 .\cf5 log\cf4 (\cf6 "Test 3"\cf4 );\cb1 \
+\cb3   \});\cb1 \
+\
+\cb3   \cf2 it\cf4 .\cf5 only\cf4 (\cf6 "Test 4"\cf4 , () \cf7 =>\cf4  \{\cb1 \
+\cb3     \cf2 cy\cf4 .\cf5 log\cf4 (\cf6 "Test 4"\cf4 );\cb1 \
+\cb3   \});\cb1 \
+\cb3 \});\cb1 \
+\
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf4 \
+\pard\pardeftab560\slleading20\partightenfactor0
+
+\f1\fs26 \cf0 \kerning1\expnd0\expndtw0 ************************* No framework *************************\
+\
+1. It is too long\
+2. It has redundant code\
+3. It is not readable\
+4. Makes maintenance very difficult, it is not  a robust framework\
+\
+\
+************************* Screenshots and video *************************\
+\
+Screenshots and videos are taken automatically only in the cypress run mode\
+Turn off the screenshots and videos (cypress.config.js)\
+1.screenshotOnRunFailure: false\
+2.videos: false\
+\
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 \
+************************* Environment variables *************************\
+\
+Cypress.config.js\
+\
+e2e:\{\
+baseUrl: \'91https://www.letskodeit.com',\
+\}\
+\
+Package.json:\
+\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f2\fs24 \cf11 \cb12 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec11  \cf13 \strokec13 "test"\cf11 \strokec11 : \cf14 \strokec14 "echo \cf15 \strokec15 \\"\cf14 \strokec14 Error: no test specified\cf15 \strokec15 \\"\cf14 \strokec14  && exit 1"\cf11 \strokec11 ,\cb1 \
+\cb12     \cf13 \strokec13 "reporting"\cf11 \strokec11 : \cf14 \strokec14 "npx cypress run --spec cypress/e2e/framework_demo/login_test_demo.cy.js --headed --browser chrome"\cf11 \strokec11 ,\cb1 \
+\cb12     \cf13 \strokec13 "cloud_command"\cf11 \strokec11 : \cf14 \strokec14 "npx cypress run --record --key 10ea847b-b223-463d-b4fb-9f0ca5249c1f --spec cypress/e2e/framework_demo/*.cy.js --headed --browser chrome"\cf11 \strokec11 ,\cb1 \
+\cb12     \cf13 \strokec13 "env_demo"\cf11 \strokec11 : \cf14 \strokec14 "npx cypress run --env username=test@email.com,password=abcabc --spec cypress/e2e/advanced/environment_variables_demo.cy.js --headed --browser chrome"\cf11 \strokec11 ,\cb1 \
+\cb12     \cf13 \strokec13 "env_open_demo"\cf11 \strokec11 : \cf14 \strokec14 "npx cypress open --env username=test@email.com,password=abcabc"\cf11 \strokec11 ,\cb1 \
+\cb12     \cf13 \strokec13 "env_demo_process"\cf11 \strokec11 : \cf14 \strokec14 "npx cypress run --env username=$APP_USERNAME,password=$PASSWORD --spec cypress/e2e/advanced/environment_variables_demo.cy.js --headed --browser chrome"\cf11 \strokec11 ,\cb1 \
+\cb12     \cf13 \strokec13 "env_demo_qa"\cf11 \strokec11 : \cf14 \strokec14 "npx cypress run --env username=$APP_USERNAME,password=$PASSWORD,url='https://www.letskodeit.com' --spec cypress/e2e/advanced/environment_variables_demo.cy.js --headed --browser chrome"\cf11 \cb1 \strokec11 \
+\pard\pardeftab560\slleading20\partightenfactor0
+
+\f1\fs26 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f2\fs24 \cf16 \cb12 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec16 module\cf11 \strokec11 .\cf16 \strokec16 exports\cf11 \strokec11  = \cf17 \strokec17 defineConfig\cf11 \strokec11 (\{\cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf11 \cb12   \cf13 \strokec13 defaultCommandTimeout:\cf11 \strokec11  \cf18 \strokec18 6000\cf11 \strokec11 ,\cb1 \
+\cb12   \cf13 \strokec13 env:\cf11 \strokec11  \{\cb1 \
+\cb12     \cf13 \strokec13 username:\cf11 \strokec11  \cf14 \strokec14 "test@email.com"\cf11 \strokec11 ,\cb1 \
+\cb12     \cf13 \strokec13 password:\cf11 \strokec11  \cf14 \strokec14 "abcabc"\cf11 \strokec11 ,\cb1 \
+\cb12     \cf13 \strokec13 url:\cf11 \strokec11  \cf14 \strokec14 "https://www.letskodeit.com"\cf11 \strokec11 ,\cb1 \
+\cb12   \},\
+\
+\cf13 \strokec13 e2e:\cf11 \strokec11  \{\cb1 \
+\cb12     \cb1 \
+\cb12     \cf17 \strokec17 setupNodeEvents\cf11 \strokec11 (\cf17 \strokec17 on\cf11 \strokec11 , \cf13 \strokec13 config\cf11 \strokec11 ) \{\cb1 \
+\cb12       \cf19 \strokec19 const\cf11 \strokec11  \cf20 \strokec20 username\cf11 \strokec11  = \cf13 \strokec13 process\cf11 \strokec11 .\cf13 \strokec13 env\cf11 \strokec11 .\cf20 \strokec20 APP_USERNAME\cf11 \strokec11 ;\cb1 \
+\cb12       \cf19 \strokec19 const\cf11 \strokec11  \cf20 \strokec20 password\cf11 \strokec11  = \cf13 \strokec13 process\cf11 \strokec11 .\cf13 \strokec13 env\cf11 \strokec11 .\cf20 \strokec20 PASSWORD\cf11 \strokec11 ;\cb1 \
+\
+\cb12       \cf13 \strokec13 config\cf11 \strokec11 .\cf13 \strokec13 env\cf11 \strokec11  = \{ \cf13 \strokec13 username\cf11 \strokec11 , \cf13 \strokec13 password\cf11 \strokec11  \};\cb1 \
+\cb12       \cf21 \strokec21 return\cf11 \strokec11  \cf13 \strokec13 config\cf11 \strokec11 ;\cb1 \
+\cb12     \},\cb1 \
+\cb12   \},\cb1 \
+
+\f1\fs26 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 \
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 \
+*************************REST API *************************\
+\
+Representational State Transfer API\
+Application programming interface\
+\
+Request -> What front end sends\
+Response -> What it recieves back\
+\
+REST -> Stateteless-> Client data is not stored in the server\
+\
+\ul End Points\
+\
+https://www.letskodeit.com/courses/test-automation-bundle?coupon=TABFROMHOME\ulnone \
+\
+URI - > https://www.letskodeit.com/\
+Resourses -> \ul \ulc0 /courses/test-automation-bundle?\ulnone \
+Parameters ->\ul \ulc0 coupon=TABFROMHOME\ulnone \
+\
+\
+https://gorest.co.in/\
+\
+Postman: Postman\'85@2024\
+\
+\
+\
+\
+\
+\
+\pard\pardeftab560\slleading20\partightenfactor0
+
+\f3 \cf0 \
+\
+}
